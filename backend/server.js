@@ -1,32 +1,31 @@
-var http = require('http');
-var formidable = require('formidable');
-var fs = require('fs');
-const mv = require('mv');
+// goto https://www.google.com/settings/security/lesssecureapps turn on unless securite before run this script
 
-http.createServer(function (req, res) {
-  if (req.url == '/fileupload') {   //file upload url
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-      // console.log(req); //FIXME
-      var oldpath = files.filetoupload.path;
-      var newpath = './uploads/' + files.filetoupload.name;
+var nodemailer = require('nodemailer');
+const BASE_MAILADDRESS="galliumwang199@gmail.com"
+const TARGET_MAILADDRESS="galliumwang1999@gmail.com"
 
-      mv(oldpath, newpath, function (err) {
-        if (err) {
-            console.log('> FileServer.jsx | route: "/files/upload" | err:', err);
-            throw err;
-        }
-        res.write('File uploaded and moved!');
-        res.end();
-    });
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: BASE_MAILADDRESS,
+    pass: 'wangjia19990908'
+  },
+  // proxy: "https://127.0.0.1:7890" // FIXME
+  proxy: "http://127.0.0.1:7890"
+});
 
- });
-  } else {  //file upload form
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
-    res.write('<input type="file" name="filetoupload"><br>');
-    res.write('<input type="submit">');
-    res.write('</form>');
-    return res.end();
+
+var mailOptions = {
+  from: BASE_MAILADDRESS,
+  to: TARGET_MAILADDRESS,
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
   }
-}).listen(8080);
+});

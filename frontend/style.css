@@ -6,30 +6,86 @@ textarea {
     width: 100%
 }
 
+
+#main{
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    margin: auto;
+}
+
+
+#form{
+    padding: 10px;
+    flex:1 0;/* grow flex-basis */
+}
+
+#result-area{
+    padding: 10px;
+    flex:1 0;/* grow flex-basis */
+}
+
+@media all and (max-width: 1200px) {
+    #header{
+        font-size: 5em !important;
+    }
+
+    #main{
+    }
+
+    .base-text{
+        font-size: 3em !important;
+    }
+
+    #form{
+        padding: 10px;
+        flex:1 100%;/* grow flex-basis */
+    }
+    
+    #result-area{
+        padding: 10px;
+        flex:1 100%;/* grow flex-basis */
+    }
+
+    #footer{
+        font-size: 3em !important;
+    }
+
+}
+
+
+.base-text{
+    font-size: 1.2em;
+}
+
 lable {
     display: block;
     font-weight: bold;
 }
 
 .top-label{
-    margin: 13px auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #footer {
     text-align: center;
-    padding-bottom: 5%;
+    padding-bottom: 2em;
 }
 
 button {
-    margin-bottom: 10px;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #result{
-    margin-top: 30px;
+    margin-top: 3em;
 }
 
 #header{
-    margin-top: 10%;
-    margin-bottom: 5%;
+    margin-top: 2em;
+    margin-bottom: 1em;
     text-align: center;
+    font-size: 2.5em;
 }

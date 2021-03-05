@@ -1,16 +1,28 @@
 textarea {
-    resize: none;
-    overflow: hidden;
-    width: 100%;
-    min-height: 50px;
+    /* resize: none;*/
+
+    /* hide scroll bar */
+    /* overflow: hidden;  */
+    width: 100%
 }
+
 lable {
+    display: block;
     font-weight: bold;
+}
+
+.top-label{
+    margin: 13px auto;
 }
 
 #footer {
     text-align: center;
 }
+
 button {
     margin-bottom: 10px;
+}
+
+#result{
+    margin-top: 30px;
 }

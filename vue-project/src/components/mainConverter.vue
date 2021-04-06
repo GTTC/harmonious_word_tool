@@ -11,7 +11,7 @@
             <button @click="convert()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
             生成
             </button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
+            <button @click="copyResult()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
             复制结果
             </button>
             <div class="p-4">
@@ -39,22 +39,34 @@
 
 <script>
 export default {
+    mounted(){
+        console.log("%cEditor loaded😶", "font-size: x-large");
+    },
     data(){
         return{
             dataAnalysisChecked:true,
             rawText:"",
-            resultText:""
+            resultText:"",
+            defaultHarmoniousChar:"‎",
+            customHarmoniousChar:"", // TODO: will be used in future
+            copySuccess:false
         };
     },
     methods:{
         textConvert(rawText){
-            return rawText;
+            return rawText.split('').join(this.defaultHarmoniousChar);
         },
         convert(){
             this.resultText=this.textConvert(this.rawText);
         },
         sendData(){
-            // there isn't data sending function currently
+            //TODO there isn't data sending function currently
+        },
+        copyResult(){
+            var copyText = document.getElementById("text-after-textarea");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            document.execCommand("copy");
         },
     },
 };

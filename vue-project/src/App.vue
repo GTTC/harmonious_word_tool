@@ -1,5 +1,5 @@
 <template>
-  <div>placeholder</div>
+  <h1 class="text-3xl text-center my-12 border rounded-lg bg-purple-200 py-3 px-5">屏蔽字混淆器</h1>
 </template>
 
 <script>
@@ -12,6 +12,4 @@ export default {
 </script>
 
 <style>
-#app {
-}
 </style>

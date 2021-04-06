@@ -11,8 +11,8 @@
             <button @click="convert()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
             生成
             </button>
-            <button @click="copyResult()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
-            复制结果
+            <button @click="copyResult()" @mouseover="recoverCopyButtonTextNodelay()" @mouseout="recoverCopyButtonText()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
+            {{copyButtonText}}
             </button>
             <div class="p-4">
             <div class="flex items-center mr-4 mb-2">
@@ -49,7 +49,8 @@ export default {
             resultText:"",
             defaultHarmoniousChar:"‎",
             customHarmoniousChar:"", // TODO: will be used in future
-            copySuccess:false
+            copyButtonText:"复制结果",
+            recoverCopyButtonTextEvent:null
         };
     },
     methods:{
@@ -67,7 +68,17 @@ export default {
             copyText.select();
             copyText.setSelectionRange(0, 99999); /* For mobile devices */
             document.execCommand("copy");
+            this.copyButtonText="copied!";
         },
+        recoverCopyButtonText(){
+            this.recoverCopyButtonText=setTimeout(()=>{
+                this.copyButtonText="复制结果"
+            },1500);
+        },
+        recoverCopyButtonTextNodelay(){
+            clearTimeout(this.recoverCopyButtonTextEvent);
+            this.copyButtonText="复制结果";
+        }
     },
 };
 </script>

@@ -5,6 +5,9 @@
 <script>
 
 export default {
+  mounted(){
+    console.log("%cMain app loaded👻", "font-size: x-large");
+  },
   name: 'App',
   components: {
   }

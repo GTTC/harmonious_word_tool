@@ -1,3 +1,5 @@
 backend/node_modules/*
 */uploads/*
 temp*
+*/node_modules/*
+node_modules/*

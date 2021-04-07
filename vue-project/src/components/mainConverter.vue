@@ -1,13 +1,13 @@
 <template>
-    <div id="mainConverter" class="mx-auto w-5/6 flex justify-around flex-wrap items-center">
+    <div id="mainConverter" class="mx-auto w-5/6 flex justify-around flex-wrap items-center flex-col lg:flex-row">
         <div class="w-full">
         <h1 class=" text-3xl text-center my-12 border rounded-lg bg-purple-200 py-3 px-5 w-max mx-auto">屏蔽字混淆器</h1>
         </div>
 
-        <article id="text-before" class="w-1/3 text-center bg-purple-200 h-4/5 border-8">
+        <article id="text-before" class="text-center bg-purple-200 border-8 w-4/5 lg:w-1/3 lg:h-4/5 converter-article-area">
             <textarea class="h-full w-full border" v-model="rawText"></textarea>
         </article>
-        <div class="w-1/6 h-1/2 border flex flex-col items-center justify-around">
+        <div class="h-1/2 border flex flex-col items-center justify-around my-3 w-4/5 lg:w-1/6">
             <button @click="convert()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
             生成
             </button>
@@ -31,7 +31,7 @@
             </div>
 
         </div>
-        <article id="text-after" class="w-1/3 text-center bg-purple-200 h-4/5 border-8">
+        <article id="text-after" class="text-center bg-purple-200 border-8 w-4/5 lg:w-1/3 lg:h-4/5 converter-article-area">
             <textarea id="text-after-textarea" readonly class="h-full w-full border" v-model="resultText"></textarea>
         </article>
     </div>
@@ -85,10 +85,25 @@ export default {
 
 <style>
     /* TODO:add responsible design */
+
+    .converter-article-area{
+        min-height: 300px;
+    }
+
+    textarea{
+        min-height: 300px;
+    }
+
     #mainConverter{
-        height: 80vh;
-        min-width: 900px;
-        min-height: 400px;
+        height: max-content;
+    }
+
+    @media (min-width: 1024px) {
+        #mainConverter{
+            height: 80vh;
+            min-width: 900px;
+            min-height: 400px;
+        }
     }
 
     #text-after-textarea{

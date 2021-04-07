@@ -55,7 +55,12 @@ export default {
     },
     methods:{
         textConvert(rawText){
-            return rawText.split('').join(this.defaultHarmoniousChar);
+            const arry=[];
+            for(const chr of rawText){
+                arry.push(chr);
+            }
+
+            return arry.join(this.defaultHarmoniousChar);
         },
         convert(){
             this.resultText=this.textConvert(this.rawText);

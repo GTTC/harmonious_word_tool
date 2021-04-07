@@ -86,6 +86,7 @@ export default {
 <style>
     /* TODO:add responsible design */
     #mainConverter{
+        height: 65vh;
         min-width: 900px;
         min-height: 400px;
     }

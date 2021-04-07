@@ -1,10 +1,10 @@
 <template>
-    <div id="mainConverter" class="mx-auto w-5/6 flex justify-around h-2/3 flex-wrap items-center">
+    <div id="mainConverter" class="mx-auto w-5/6 flex justify-around flex-wrap items-center">
         <div class="w-full">
         <h1 class=" text-3xl text-center my-12 border rounded-lg bg-purple-200 py-3 px-5 w-max mx-auto">屏蔽字混淆器</h1>
         </div>
 
-        <article id="text-before" class="w-1/3 text-center bg-purple-200 h-full border-8">
+        <article id="text-before" class="w-1/3 text-center bg-purple-200 h-4/5 border-8">
             <textarea class="h-full w-full border" v-model="rawText"></textarea>
         </article>
         <div class="w-1/6 h-1/2 border flex flex-col items-center justify-around">
@@ -31,7 +31,7 @@
             </div>
 
         </div>
-        <article id="text-after" class="w-1/3 text-center bg-purple-200 h-full border-8">
+        <article id="text-after" class="w-1/3 text-center bg-purple-200 h-4/5 border-8">
             <textarea id="text-after-textarea" readonly class="h-full w-full border" v-model="resultText"></textarea>
         </article>
     </div>
@@ -86,7 +86,7 @@ export default {
 <style>
     /* TODO:add responsible design */
     #mainConverter{
-        height: 65vh;
+        height: 80vh;
         min-width: 900px;
         min-height: 400px;
     }

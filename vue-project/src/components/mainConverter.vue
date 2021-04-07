@@ -71,7 +71,7 @@ export default {
             this.copyButtonText="copied!";
         },
         recoverCopyButtonText(){
-            this.recoverCopyButtonText=setTimeout(()=>{
+            this.recoverCopyButtonTextEvent=setTimeout(()=>{
                 this.copyButtonText="复制结果"
             },1500);
         },
